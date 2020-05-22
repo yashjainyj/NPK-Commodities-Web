@@ -22,6 +22,11 @@ import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { OldbooksComponent } from './oldbooks/oldbooks.component';
+import { EquipmentsComponent } from './equipments/equipments.component';
+import { QnaComponent } from './qna/qna.component';
+import { VblogComponent } from './vblog/vblog.component';
+import { StudymaterialComponent } from './studymaterial/studymaterial.component';
 
 @NgModule({
   imports: [
@@ -39,6 +44,11 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    OldbooksComponent,
+    EquipmentsComponent,
+    QnaComponent,
+    VblogComponent,
+    StudymaterialComponent,
 
   ],
   providers: [],

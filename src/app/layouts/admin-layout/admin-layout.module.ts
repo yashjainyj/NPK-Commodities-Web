@@ -17,6 +17,11 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
+import { OldbooksComponent } from 'app/oldbooks/oldbooks.component';
+import { QnaComponent } from 'app/qna/qna.component';
+import { VblogComponent } from 'app/vblog/vblog.component';
+import { StudymaterialComponent } from 'app/studymaterial/studymaterial.component';
+import { EquipmentsComponent } from 'app/equipments/equipments.component';
 
 @NgModule({
   imports: [
@@ -40,6 +45,11 @@ import {MatSelectModule} from '@angular/material/select';
     // MapsComponent,
     // NotificationsComponent,
     // UpgradeComponent,
+    OldbooksComponent,
+    EquipmentsComponent,
+    QnaComponent,
+    VblogComponent,
+    StudymaterialComponent,
   ]
 })
 
