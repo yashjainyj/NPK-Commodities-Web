@@ -6,7 +6,11 @@ import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import PerfectScrollbar from 'perfect-scrollbar';
 import * as $ from "jquery";
-
+import { UserserviceService } from 'app/userservice.service';
+import { async } from '@angular/core/testing';
+import * as firebase from "firebase";
+import { AngularFireAuth } from '@angular/fire/auth';
+import { map,switchMap } from 'rxjs/operators';
 @Component({
   selector: 'app-admin-layout',
   templateUrl: './admin-layout.component.html',
@@ -17,9 +21,11 @@ export class AdminLayoutComponent implements OnInit {
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
 
-  constructor( public location: Location, private router: Router) {}
-
+  constructor( public location: Location, private router: Router,public user: UserserviceService,private afAuth: AngularFireAuth) {}
+  menuOpen=false;
   ngOnInit() {
+   
+    
       const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
 
       if (isWindows && !document.getElementsByTagName('body')[0].classList.contains('sidebar-mini')) {
@@ -155,5 +161,11 @@ export class AdminLayoutComponent implements OnInit {
       }
       return bool;
   }
+  isMobileMenu() {
+    if ($(window).width() > 991) {
+        return false;
+    }
+    return true;
+};
 
 }

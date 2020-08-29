@@ -1,0 +1,62 @@
+
+<section style="background: #34495e;" class="about-area">
+<div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12 d-flex justify-content-center" >
+            <img style="width: fit-content;" src="../../assets/img/NPK-removebg-preview.png" alt="">
+          </div>
+            <div class="col-sm-12 col-lg-6 col-md-6 " >
+              <h3 style="color: sandybrown;">Login</h3>
+              <form  (ngSubmit)="logincre()">
+                <div class="form-group">
+                  <label for="email" style="color: white;">Enter Email</label>
+                  <input type="email" class="form-control" name="Email" [(ngModel)]="email" id="email" required >
+                  
+                </div>
+                <div class="form-group">
+                  <label for="pass" style="color: white;">Enter Password</label>
+                  <input type="password" class="form-control" name="Email" [(ngModel)]="pass" id="pass"  required>
+                  
+                </div>
+                <p style="color: sandybrown;" data-toggle="modal" data-target="#exampleModal" >Forget Password</p>
+                <button   type="submit" value="Submit" class="btn btn-success" >Login</button>
+
+              </form>
+              <a (click)="login()" class="oauth-container btn btn-secondary white black-text"  role="button" style="text-transform:none">
+                <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                <!-- <button  class=" btn btn-info" >Admin Login</button> -->
+                 Login with Google
+              </a>
+            </div>
+          </div>
+
+
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Forget Password</h5>
+       
+      </div>
+      <div class="modal-body">
+       <form (ngSubmit)="forget()">
+        <div class="form-group">
+          <label for="email" style="color: white;">Enter Email</label>
+          <input type="email" class="form-control" name="Email" [(ngModel)]="email1" id="email" required >
+          
+        </div>
+        <button   type="submit" value="Submit" class="btn btn-success" >Send Reset Link </button>
+       </form>
+      </div>
+      <div class="modal-footer" >
+       
+        <button  type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+</section>

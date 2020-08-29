@@ -4,24 +4,20 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { DashboardComponent } from '../../dashboard/dashboard.component';
-// import { UserProfileComponent } from '../../user-profile/user-profile.component';
-// import { TableListComponent } from '../../table-list/table-list.component';
-// import { TypographyComponent } from '../../typography/typography.component';
-// import { IconsComponent } from '../../icons/icons.component';
-// import { MapsComponent } from '../../maps/maps.component';
-// import { NotificationsComponent } from '../../notifications/notifications.component';
-// import { UpgradeComponent } from '../../upgrade/upgrade.component';
+
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatRippleModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
-import { OldbooksComponent } from 'app/oldbooks/oldbooks.component';
-import { QnaComponent } from 'app/qna/qna.component';
-import { VblogComponent } from 'app/vblog/vblog.component';
-import { StudymaterialComponent } from 'app/studymaterial/studymaterial.component';
+
 import { EquipmentsComponent } from 'app/equipments/equipments.component';
+import { OrdersComponent } from 'app/orders/orders.component';
+import { UserdetailsComponent } from 'app/userdetails/userdetails.component';
+import { LogoutComponent } from 'app/logout/logout.component';
+import { LoginComponent } from 'app/login/login.component';
+
 
 @NgModule({
   imports: [
@@ -45,11 +41,15 @@ import { EquipmentsComponent } from 'app/equipments/equipments.component';
     // MapsComponent,
     // NotificationsComponent,
     // UpgradeComponent,
-    OldbooksComponent,
+    // OldbooksComponent,
     EquipmentsComponent,
-    QnaComponent,
-    VblogComponent,
-    StudymaterialComponent,
+   
+    OrdersComponent,
+    UserdetailsComponent,
+    LogoutComponent,
+    
+    // VblogComponent,
+    // StudymaterialComponent,
   ]
 })
 

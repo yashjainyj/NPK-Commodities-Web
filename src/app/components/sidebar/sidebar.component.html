@@ -1,13 +1,11 @@
-<div class="logo">
-    <a href="https://www.creative-tim.com" class="simple-text">
-        <div class="logo-img">
-            <img src="./assets/img/favicon.png"/>
-        </div>
-       Dark
+
+<div class="logo" >
+    <a href="" [routerLink]="['/dashboard']" class="simple-text">
+           NPK Commodities
     </a>
 </div>
-<div class="sidebar-wrapper">
-  <div *ngIf="isMobileMenu()">
+<div class="sidebar-wrapper " >
+  <!-- <div *ngIf="isMobileMenu()">
     <form class="navbar-form">
       <span class="bmd-form-group">
         <div class="input-group no-border">
@@ -53,8 +51,8 @@
             </a>
         </li>
     </ul>
-  </div>
-    <ul class="nav">
+  </div> -->
+    <ul class="nav" >
         <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
             <a class="nav-link" [routerLink]="[menuItem.path]">
                 <i class="material-icons">{{menuItem.icon}}</i>
@@ -62,4 +60,5 @@
             </a>
         </li>
     </ul>
+    
 </div>

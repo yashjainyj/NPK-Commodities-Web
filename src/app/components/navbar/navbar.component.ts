@@ -14,7 +14,7 @@ export class NavbarComponent implements OnInit {
       mobile_menu_visible: any = 0;
     private toggleButton: any;
     private sidebarVisible: boolean;
-
+    private menuOpen = true;
     constructor(location: Location,  private element: ElementRef, private router: Router) {
       this.location = location;
           this.sidebarVisible = false;
@@ -30,6 +30,7 @@ export class NavbarComponent implements OnInit {
          if ($layer) {
            $layer.remove();
            this.mobile_menu_visible = 0;
+           
          }
      });
     }
@@ -40,9 +41,7 @@ export class NavbarComponent implements OnInit {
         setTimeout(function(){
             toggleButton.classList.add('toggled');
         }, 500);
-
         body.classList.add('nav-open');
-
         this.sidebarVisible = true;
     };
     sidebarClose() {
@@ -122,4 +121,18 @@ export class NavbarComponent implements OnInit {
       }
       return 'Dashboard';
     }
+
+    onToolbarToggle(){
+        console.log(this.menuOpen);
+        this.menuOpen = !this.menuOpen;
+        
+    }
+
+    isMobileMenu() {
+        if ($(window).width() > 991) {
+            return false;
+        }
+        return true;
+    };
+
 }

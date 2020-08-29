@@ -1,11 +1,72 @@
 <div class="main-content">
     <div class="container-fluid">
-      <h1>Equipments Works</h1>
+      <form ngNativeValidate  (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <input for="exampleInputFile" style="display: none" name="url"  type="file" accept="image/*" (change)="onFileChanged($event)"   #fileInput>
+              <br>
+              <button class="btn btn-info" (click)="fileInput.click()" id="exampleInputFile">Select Product Image</button>
+             
+              <label>{{fileinfo}}</label>
+              <br>
+              <!-- <button (click)="onUpload()">Upload</button> -->
+            </div>
+            <div class="form-group">
+              <label for="exampleInputName">Enter Product Name</label>
+              <input type="text" class="form-control" name="productName" id=""[(ngModel)]="product.productName"  >
+              
+              <!-- <span ng-show="hasError('productName', 'required')">required</span> -->
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPrice">Enter Product Price</label>
+              <input type="number" class="form-control" name="productPrice" [(ngModel)]="product.productPrice" id="exampleInputPrice"  >
+            </div>
+            <div class="form-group">
+              <label for="exampleInputCategory">Enter Product Category</label>
+              <input type="text" class="form-control" name="productCategory" [(ngModel)]="product.productCategory" id="exampleInputCategory"  >
+            </div>
+            <div class="form-group">
+              <label for="exampleInputDesc">Enter Product Description</label>
+              <input type="text" class="form-control" name="productDescription"  [(ngModel)]="product.productDescription" id="exampleInputDesc"  >
+            </div>
+            <div *ngIf="((product.productName!='') && (product.productName!=null)  &&(product.productDescription!='') &&(product.productDescription!=null) && (product.productCategory!=null) &&(product.productCategory!='') && (product.productPrice!=null ) && (product.productPrice!='' ) && (fileinfo!=null))">
+              <button   type="submit" data-toggle="modal" data-target="#exampleModal"  value="Submit" class="btn btn-success" >Add Commodities</button>
+            </div>
+           
+            <!-- <button type="reset" class="btn btn-danger" >Reset</button> -->
+            
+          </div>
+          <div class="col-md-6">
+            
+          </div>
+        </div>
+        
+      </form>
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Upload</h5>
+             
+            </div>
+            <div class="modal-body">
+              <div class="progress" >
+                <div  class="progress-bar progress-bar-striped bg-success" role="progressbar" [style.width]="(uploadProgress | async) + '%'" [attr.aria-valuenow]="(uploadProgress | async)" aria-valuemin="0" aria-valuemax="100"></div>
+               
+            </div>
+            </div>
+            <div class="modal-footer" *ngIf="(uploadProgress|async) == 100">
+              <h3>Uploaded Successfully</h3>
+              <br>
+              <button  type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             
+              <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      
   </div>
   </div>
   
-
-
-
-
-

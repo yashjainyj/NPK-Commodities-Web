@@ -3,31 +3,25 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-
-
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AppComponent } from './app.component';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-// import { UserProfileComponent } from './user-profile/user-profile.component';
-// import { TableListComponent } from './table-list/table-list.component';
-// import { TypographyComponent } from './typography/typography.component';
-// import { IconsComponent } from './icons/icons.component';
-// import { MapsComponent } from './maps/maps.component';
-// import { NotificationsComponent } from './notifications/notifications.component';
-// import { UpgradeComponent } from './upgrade/upgrade.component';
 import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { OldbooksComponent } from './oldbooks/oldbooks.component';
-import { EquipmentsComponent } from './equipments/equipments.component';
-import { QnaComponent } from './qna/qna.component';
-import { VblogComponent } from './vblog/vblog.component';
-import { StudymaterialComponent } from './studymaterial/studymaterial.component';
-
+import { environment } from 'environments/environment';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { LogoutComponent } from './logout/logout.component';
+import { AuthGuard } from './core/auth.guard';
+import { LoginComponent } from './login/login.component';
+import{InfiniteScrollModule} from 'ngx-infinite-scroll';
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -36,6 +30,12 @@ import { StudymaterialComponent } from './studymaterial/studymaterial.component'
     HttpModule,
     ComponentsModule,
     RouterModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireDatabaseModule,
+    AngularFireStorageModule,
+    InfiniteScrollModule,
     AppRoutingModule,
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
@@ -44,14 +44,17 @@ import { StudymaterialComponent } from './studymaterial/studymaterial.component'
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    OldbooksComponent,
-    EquipmentsComponent,
-    QnaComponent,
-    VblogComponent,
-    StudymaterialComponent,
-
+    LoginComponent
+    // LoginComponent,
+      // OrdersComponent,
+    // UserdetailsComponent,
+    // OldbooksComponent,
+    // EquipmentsComponent,
+    // QnaComponent,
+    // VblogComponent,
+    // StudymaterialComponent,
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

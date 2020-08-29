@@ -9,12 +9,12 @@ declare interface RouteInfo {
 }
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
-     { path: '/oldbooks', title: 'OldBooks',  icon:'book', class: '' },
-     { path: '/equipments', title: 'Equipments',  icon:'content_paste', class: '' },
-     { path: '/qna', title: 'QnA',  icon:'library_books', class: '' },
-     { path: '/vblog', title: 'VBlog',  icon:'video_library', class: '' },
-     { path: '/studymaterial', title: 'Study Material',  icon:'bubble_chart', class: '' },
-    
+     { path: '/addCommmodities', title: 'Add Commmodities',  icon:'book', class: '' },
+     { path: '/orders', title: 'Orders',  icon:'content_paste', class: '' },
+     { path: '/userDetails', title: 'User Details',  icon:'library_books', class: '' },
+     { path: '/logout', title: 'LogOut',  icon:'logout', class: '' },
+    //  { path: '/vblog', title: 'VBlog',  icon:'video_library', class: '' },
+    //  { path: '/studymaterial', title: 'Study Material',  icon:'notes', class: '' },
     // { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
     // { path: '/upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' },
 ];
@@ -26,16 +26,11 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
-
+  isMenuOpen = true;
   constructor() { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
   }
-  isMobileMenu() {
-      if ($(window).width() > 991) {
-          return false;
-      }
-      return true;
-  };
+  
 }
