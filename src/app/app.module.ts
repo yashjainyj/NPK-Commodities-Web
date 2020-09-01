@@ -22,6 +22,7 @@ import { LogoutComponent } from './logout/logout.component';
 import { AuthGuard } from './core/auth.guard';
 import { LoginComponent } from './login/login.component';
 import{InfiniteScrollModule} from 'ngx-infinite-scroll';
+import { SpinnerComponent } from './spinner/spinner.component';
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -44,7 +45,8 @@ import{InfiniteScrollModule} from 'ngx-infinite-scroll';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    LoginComponent
+    LoginComponent,
+    
     // LoginComponent,
       // OrdersComponent,
     // UserdetailsComponent,

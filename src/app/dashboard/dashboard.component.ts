@@ -15,6 +15,7 @@ import { Observable } from 'rxjs';
 })
 export class DashboardComponent implements OnInit {
 finished=false;
+spinner:boolean = true;
 productUpdate : ProductDetails = new ProductDetails();
 uploadProgress: Observable<number>;
  
@@ -93,6 +94,7 @@ getProductList() {
     ).subscribe(products => {
       this.product = products;
       this.finished=true;
+      this.spinner=false;
       console.log(this.product);
     });
   }

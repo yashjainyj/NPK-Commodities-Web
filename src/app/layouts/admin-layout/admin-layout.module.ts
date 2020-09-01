@@ -17,6 +17,7 @@ import { OrdersComponent } from 'app/orders/orders.component';
 import { UserdetailsComponent } from 'app/userdetails/userdetails.component';
 import { LogoutComponent } from 'app/logout/logout.component';
 import { LoginComponent } from 'app/login/login.component';
+import { SpinnerComponent } from 'app/spinner/spinner.component';
 
 
 @NgModule({
@@ -43,7 +44,7 @@ import { LoginComponent } from 'app/login/login.component';
     // UpgradeComponent,
     // OldbooksComponent,
     EquipmentsComponent,
-   
+    SpinnerComponent,
     OrdersComponent,
     UserdetailsComponent,
     LogoutComponent,

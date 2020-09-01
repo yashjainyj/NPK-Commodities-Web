@@ -1,6 +1,6 @@
 <div class="main-content">
     <div class="container-fluid">
-         
+      <div *ngIf="snipper" ><app-spinner></app-spinner></div>
     <!-- <div *ngIf="user.uid | async as uid else login">
         This is logged in {{uid}}
         <div *ngIf="user.isAdmin | async">{{isAdmin}} Admin</div>
@@ -10,7 +10,7 @@
        U need to login
        <button (click)="user.login()">login</button>
    </ng-template> -->
-   <div class="row">
+   <div   class="row">
        <div class="col-md-4 "  *ngFor="let p of product">
        
             <div  class="card"  >

@@ -32,6 +32,7 @@ export class EquipmentsComponent implements OnInit {
         finalize(() =>  this.ref.getDownloadURL().subscribe(url => {
           console.log(url); 
           this.product.url=url;
+          this.product.key = 
           this.product.imgname = id;
           this.save();
         })

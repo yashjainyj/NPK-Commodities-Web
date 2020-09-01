@@ -1,6 +1,32 @@
 <div class="main-content">
     <div class="container-fluid">
-      <h1>Orders Works</h1>
+      <div *ngIf="snipper" ><app-spinner></app-spinner></div>
+      <table *ngIf="!snipper" class="table table-hover ">
+        <thead>
+          <tr>
+            <th >Order Ref. No.</th>
+            <th >Product Image</th>
+            <th >Product Name</th>
+            <th >Product Price</th>
+            <th >Product Category</th>
+            <th >Order Date</th>
+            <th >Order By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of detail ; let i=index; ">
+            <td><b>{{order[i].referenceNo }} </b></td>
+            <td> <img src="{{p.url}}" alt="" style="position: relative;width: 100px;"> </td>
+            <td>{{p.productName}}</td>
+            <td>Rs.{{p.productPrice}}</td>
+            <td>{{p.productCategory}}</td>
+            <td>{{order[i].orderDate}}</td>
+            <td>{{order[i].userEmail}}</td>
+          </tr>
+         
+        </tbody>
+      </table>
+      
   </div>
   </div>
   
