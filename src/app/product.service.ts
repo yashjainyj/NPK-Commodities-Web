@@ -5,6 +5,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 import { OrderDetails } from './order-details.model';
 import { Observable } from 'rxjs';
 import { UserDetail } from './user-detail.model';
+import { MemberDetails } from './member-details.model';
 
 @Injectable({
   providedIn: 'root'
@@ -52,5 +53,8 @@ export class ProductService {
   }
   getUserOrder(key:string) :AngularFireList<OrderDetails> {
     return this.db.list("users/"+key+"/orders/");
+  }
+  getUserMember(key:string) :AngularFireList<MemberDetails> {
+    return this.db.list("users/"+key+"/memberDetails");
   }
 }

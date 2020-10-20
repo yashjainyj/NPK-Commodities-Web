@@ -1,6 +1,6 @@
 <div class="main-content">
     <div class="container-fluid">
-      <div *ngIf="snipper" ><app-spinner></app-spinner></div>
+      <div *ngIf="spinner" ><app-spinner></app-spinner></div>
     <!-- <div *ngIf="user.uid | async as uid else login">
         This is logged in {{uid}}
         <div *ngIf="user.isAdmin | async">{{isAdmin}} Admin</div>
@@ -70,28 +70,27 @@
                       <input for="exampleInputFile" style="display: none" name="url"  type="file" accept="image/*" (change)="onFileChanged($event)"   #fileInput>
                       <br>
                       <button class="btn btn-info" (click)="fileInput.click()" id="exampleInputFile">Select Product Image</button>
-                     
-                      <label>{{fileinfo}}</label>
+                      <label >{{fileinfo}}</label>
                       <br>
                       <!-- <button (click)="onUpload()">Upload</button> -->
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputName">Enter Product Name</label>
-                      <input type="text" class="form-control" name="productName" id=""[(ngModel)]="productUpdate.productName"  >
+                      <label for="exampleInputName">Enter Product Name </label>
+                      <input type="text" class="form-control" value="{{kes?.productName }}" name="productName" id=""[(ngModel)]="productUpdate.productName"  >
                       
                       <!-- <span ng-show="hasError('productName', 'required')">required</span> -->
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPrice">Enter Product Price</label>
-                      <input type="number" class="form-control" name="productPrice" [(ngModel)]="productUpdate.productPrice" id="exampleInputPrice"  >
+                      <input type="number" class="form-control" value="{{kes?.productPrice }}" name="productPrice" [(ngModel)]="productUpdate.productPrice" id="exampleInputPrice"  >
                     </div>
                     <div class="form-group">
                       <label for="exampleInputCategory">Enter Product Category</label>
-                      <input type="text" class="form-control" name="productCategory" [(ngModel)]="productUpdate.productCategory" id="exampleInputCategory"  >
+                      <input type="text" class="form-control" value="{{kes?.productCategory }}" name="productCategory" [(ngModel)]="productUpdate.productCategory" id="exampleInputCategory"  >
                     </div>
                     <div class="form-group">
                       <label for="exampleInputDesc">Enter Product Description</label>
-                      <input type="text" class="form-control" name="productDescription"  [(ngModel)]="productUpdate.productDescription" id="exampleInputDesc"  >
+                      <textarea type="text"  class="form-control" name="productDescription" value="{{kes?.productDescription }}"   [(ngModel)]="productUpdate.productDescription" id="exampleInputDesc"  ></textarea>
                     </div>
                     <div >
                       <button   type="submit" data-toggle="modal" data-target="#updatedialog"  value="Submit" class="btn btn-success" >Update Commodities</button>
@@ -101,7 +100,8 @@
                     
                   </div>
                   <div class="col-md-6">
-                    
+                    <img *ngIf="!fileinfo" src="{{kes?.url}}" style="width: 100px;" alt="">
+                    <img [src]="url"style="width: 100px;"  alt="">
                   </div>
                 </div>
                 

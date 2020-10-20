@@ -18,15 +18,24 @@ finished=false;
 spinner:boolean = true;
 productUpdate : ProductDetails = new ProductDetails();
 uploadProgress: Observable<number>;
- 
 selectedFile: File;
 fileinfo:string;
 ref: AngularFireStorageReference;
 files=false;
 task: AngularFireUploadTask;
+url;
 onFileChanged(event) {
   this.files=true;
   this.selectedFile = event.target.files[0]
+  if (event.target.files && event.target.files[0]) {
+    var reader = new FileReader();
+
+    reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+    reader.onload = (event) => { // called once readAsDataURL is completed
+      this.url = event.target.result;
+    }
+  }
   function formatBytes(bytes: number): string {
     const UNITS = ['Bytes', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
     const factor = 1024;
@@ -66,16 +75,12 @@ onSubmit() {
         )
        
       )
-      .subscribe();
-        
-      
+      .subscribe();    
     }
     else
     {
       this.save();
     }
-    
-    
 }
 
 
@@ -83,6 +88,7 @@ onSubmit() {
   product :any;
   ngOnInit() {
     this.getProductList();
+    
   }
 getProductList() {
     this.productService.getProoduct().snapshotChanges().pipe(
@@ -101,7 +107,6 @@ getProductList() {
 
   deleteProduct() {
    // console.log(key + "df");
-   
     this.productService.deleteProduct(this.key).catch(err => console.log(err));
     this.storage.ref("/productImages").child(name).delete();
   }
@@ -114,10 +119,23 @@ getProductList() {
  }
  ukey:string;
   uname:string;
+  kes;
  storeupdate(key,name)
  {
     this.ukey = key;
-    
     this.uname=name;
+   this.productService.getProductKey(key).subscribe(o => {
+      console.log(o);
+     // this.order = o;
+    this.kes = o;
+      // for(let i in this.kes)
+      // {
+      //   console.log(this.kes[i]);
+        
+      // }
+      
+  });
+    
  }
+ 
 }

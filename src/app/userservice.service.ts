@@ -60,6 +60,7 @@ export class UserserviceService {
     
     this.afAuth.signInWithEmailAndPassword(email,pass).catch(err=>{
         console.log(err);
+        window.alert(err);
         
     });
   }

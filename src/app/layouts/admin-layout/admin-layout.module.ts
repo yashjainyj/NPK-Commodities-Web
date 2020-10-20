@@ -18,6 +18,7 @@ import { UserdetailsComponent } from 'app/userdetails/userdetails.component';
 import { LogoutComponent } from 'app/logout/logout.component';
 import { LoginComponent } from 'app/login/login.component';
 import { SpinnerComponent } from 'app/spinner/spinner.component';
+import { ProductFilterPipePipe } from 'app/product-filter-pipe.pipe';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { SpinnerComponent } from 'app/spinner/spinner.component';
     OrdersComponent,
     UserdetailsComponent,
     LogoutComponent,
+    ProductFilterPipePipe,
     
     // VblogComponent,
     // StudymaterialComponent,

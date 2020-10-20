@@ -24,6 +24,7 @@ export class OrdersComponent implements OnInit {
       )
     ).subscribe(orders => {
        this.order = orders;
+       
     //  console.log(this.order);
       for(var k in orders){
         console.log(orders[k].itemId);
@@ -34,8 +35,12 @@ export class OrdersComponent implements OnInit {
             this.detail.push(o);
             console.log(this.detail);
             
+            // this.detail= this.detail.reverse();
+           
         });
       }
+      // this.order=  this.order.slice().reverse();
+      // this.detail = this.detail.slice().reverse();
     });
   }
 

@@ -2,21 +2,23 @@
 <div class="main-content">
   <div *ngIf="snipper" ><app-spinner></app-spinner></div>
     <div class="container-fluid">
-      
+      <!-- <label>Search By Name</label> -->
+      <input placeholder="Search By Name" type="text" [(ngModel)]='listFilter'/>
       <table *ngIf="!snipper" class="table table-hover ">
         <thead>
           <tr>
-            <th >Rashon Card No.</th>
+            <th >Card No.</th>
             <th >First Name</th>
             <th >Last Name</th>
             <th >Phone</th>
             <th >Email</th>
             <th >Address</th>
+            <th>Member Detail</th>
             <th >Order</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let p of user ">
+          <tr *ngFor='let p of user | productFilterPipe:listFilter'>
            
             <td><b>{{p.userDetails.about}}</b></td>
             <td>{{p.userDetails.fname }} </td>
@@ -24,12 +26,55 @@
             <td>{{p.userDetails.phone}}</td>
             <td>{{p.userDetails.email}}</td>
             <td>{{p.userDetails.location}}</td>
+            <td><button class="btn btn-info" data-toggle="modal" data-target="#member" (click)="getMember(p.key)">view Member</button></td>
             <td><button class="btn btn-success" data-toggle="modal" data-target="#exampleModal" (click)="getOrders(p.key)">view order</button></td>
           </tr>
          
         </tbody>
       </table>
 
+
+      
+      <div class="modal fade" id="member" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog"  role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Member Details</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+              <div *ngIf="snipper1" ><app-spinner></app-spinner></div>
+              <table  *ngIf="!snipper1" class="table table-hover ">
+                <thead>
+                  <tr>
+                    <th >Name</th>
+                    <th >Age</th>
+                    <th >Gender</th>                   
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let p of member ">
+                    <td><b>{{p.name }} </b></td>
+                    <td> {{p.age}}</td>
+                    <td>{{p.gender}}</td>
+                 
+                  </tr>
+                 
+                </tbody>
+              </table>
+        
+            </div>
+            <div class="modal-footer" >
+             
+              <!-- <button  type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+             
+              <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog  modal-xl" style="max-width: 80%;" role="document">

@@ -28,9 +28,9 @@
             </div>
             <div class="form-group">
               <label for="exampleInputDesc">Enter Product Description</label>
-              <input type="text" class="form-control" name="productDescription"  [(ngModel)]="product.productDescription" id="exampleInputDesc"  >
+              <textarea type="text" class="form-control" name="productDescription"  [(ngModel)]="product.productDescription" id="exampleInputDesc"  ></textarea>
             </div>
-            <div *ngIf="((product.productName!='') && (product.productName!=null)  &&(product.productDescription!='') &&(product.productDescription!=null) && (product.productCategory!=null) &&(product.productCategory!='') && (product.productPrice!=null ) && (product.productPrice!='' ) && (fileinfo!=null))">
+            <div *ngIf="((product.productName!='') && (product.productName!=null)  &&(product.productDescription!='') &&(product.productDescription!=null) && (product.productCategory!=null) &&(product.productCategory!='') && (product.productPrice!=null ) && (fileinfo!=null))">
               <button   type="submit" data-toggle="modal" data-target="#exampleModal"  value="Submit" class="btn btn-success" >Add Commodities</button>
             </div>
            
@@ -38,7 +38,7 @@
             
           </div>
           <div class="col-md-6">
-            
+            <img [src]="url"style="width: 100px;"  alt="">
           </div>
         </div>
         

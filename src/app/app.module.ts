@@ -23,6 +23,7 @@ import { AuthGuard } from './core/auth.guard';
 import { LoginComponent } from './login/login.component';
 import{InfiniteScrollModule} from 'ngx-infinite-scroll';
 import { SpinnerComponent } from './spinner/spinner.component';
+import { ProductFilterPipePipe } from './product-filter-pipe.pipe';
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -46,6 +47,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
+    
     
     // LoginComponent,
       // OrdersComponent,

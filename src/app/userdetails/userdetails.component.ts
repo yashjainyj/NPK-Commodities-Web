@@ -10,6 +10,7 @@ export class UserdetailsComponent implements OnInit {
 
   constructor(private productService : ProductService) { }
   user:any;
+  listFilter:string =""
   order:any;
   snipper:boolean = true;
   snipper1:boolean = true;
@@ -53,6 +54,22 @@ export class UserdetailsComponent implements OnInit {
             console.log(this.detail);
         });
       }
+    });
+  }
+  member :any;
+  getMember(key)
+  {
+    this.productService.getUserMember(key).snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ key: c.payload.key, ...c.payload.val() })
+        )
+      )
+    ).subscribe(member => {
+      this.member = member;
+      this.snipper1=false;
+      console.log(member);
+
     });
   }
 }

@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   email:string;
   email1:string;
   pass:string;
+  spinner:boolean=false;
   ngOnInit(): void {
     console.log("hy");
     if(this.user.authenticated)
@@ -50,6 +51,7 @@ export class LoginComponent implements OnInit {
 
   logincre()
   {
+    this.spinner = true;
     console.log("hy login" + this.pass);
     if(this.user.authenticated)
     {
@@ -61,6 +63,7 @@ export class LoginComponent implements OnInit {
       }
     })
     this.user.logincredential(this.email,this.pass);
+    this.spinner=false;
         //this.router.navigate(["/dashboard"]);   
     }
        

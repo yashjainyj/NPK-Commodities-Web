@@ -47,7 +47,7 @@ export class EquipmentsComponent implements OnInit {
   ngOnInit(): void {
   }
   uploadProgress: Observable<number>;
- 
+ url;
   selectedFile: File;
   fileinfo:string;
   ref: AngularFireStorageReference;
@@ -55,6 +55,15 @@ export class EquipmentsComponent implements OnInit {
   onFileChanged(event) {
     
     this.selectedFile = event.target.files[0]
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+  
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+  
+      reader.onload = (event) => { // called once readAsDataURL is completed
+        this.url = event.target.result;
+      }
+    }
     function formatBytes(bytes: number): string {
       const UNITS = ['Bytes', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
       const factor = 1024;
